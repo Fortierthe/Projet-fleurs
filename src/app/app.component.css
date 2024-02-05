@@ -17,7 +17,7 @@ body {
     position: absolute;
     top: 0;
     left: -100px;
-    height: 100vh;
+    height:initial;
     width: 90%;
     max-width: 200px;
     text-align: left;
@@ -107,12 +107,20 @@ body {
     font-size: 1.2em; 
 }
 
+.barreNav {
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    position: relative;
+}
+
 .link {
     font-size: 1.2em;
     position: absolute;
     flex-direction: row;
-    margin-top: 3%;
-    margin-left: 45%;
+
     justify-content: space-between;
     align-items: center;
 }
@@ -169,6 +177,7 @@ nav a {
 .prodGallery {
     display: flex;
     flex-wrap: wrap;
+
     gap: 1em;
     padding: 2em;
 }
@@ -182,6 +191,11 @@ nav a {
     padding: 1px;
 }
 
+.product:hover {
+    border: 1px solid #000000;
+
+}
+
 footer {
     background: #f6c7de;
     color: #fff;
@@ -189,14 +203,15 @@ footer {
     padding: 1em 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 956px) {
     .product {
         flex-basis: calc(50% - 1em); /* Deux produits par ligne sur les écrans moyens */
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 650px) {
     .product {
         flex-basis: 100%; /* Un produit par ligne sur les petits écrans */
     }
+
 }

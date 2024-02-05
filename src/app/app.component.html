@@ -22,9 +22,10 @@
       <input id="menuCB" type="checkbox" class="menuCB"> 
       <nav class="menuNav"> 
         <ul>
-          <li class="menuItem"><a href="#" class="menuLink">Fleur1</a></li>
-          <li class="menuItem"><a href="#" class="menuLink">Fleur2</a></li>
-          <li class="menuItem"><a href="#" class="menuLink">Fleur3</a></li>
+          <li class="menuItem"><a href="#" class="menuLink">Accueil</a></li>
+          <li class="menuItem"><a routerLink="/contact" class="menuLink">Contact</a></li>
+          <li class="menuItem"><a href="#" class="menuLink">Profil</a></li>
+          <li class="menuItem"><a href="#" class="menuLink">Panier</a></li>
         </ul>
       </nav>
 
@@ -55,13 +56,6 @@
             <span class="black-text">Flower</span> 
             <span class="pink-text">Store</span>
           </h1>
-          <nav class="link">
-            <a href="#">Accueil</a>
-            <a href="#">Fleurs</a>
-            <a href="#">Contact</a>
-            <a href="#">Test</a>
-            <a href="#">Test2</a>
-          </nav>
       </section>
 
 
@@ -73,6 +67,15 @@
         <img src="../assets/test.png">
       </section>
 
+      <section class="barreNav">
+        <nav class="link">
+          <a href="#">Accueil</a>
+          <a href="#">Fleurs</a>
+          <a href="#">Contact</a>
+          <a href="#">Test</a>
+          <a href="#">Test2</a>
+        </nav>
+      </section>
 
       <section class="prodGallery">
         <div class="product" *ngFor="let product of product">
