@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Supprimer mon compte - FlowerStore{% endblock %}
+
+{% block content %}
+    {{ form_start(deleteForm, {'action': path('account_delete_confirm')}) }}
+        {{ form_widget(deleteForm) }}
+    {{ form_end(deleteForm) }}
+{% endblock %}
