@@ -22,6 +22,41 @@
             user-select: none;
         }
 
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            width: 260px;
+            height: 260px;
+        }
+        
+        .image-container svg {
+            width: 210px;
+            height: 210px;
+        }
+        
+        .image-container:hover svg {
+            width: 140px;
+            height: 140px;
+            transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
+        }
+        
+        .overlay {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            color: black;
+            transition: top 0.3s ease-in-out;
+            z-index: -1; /* Place le contenu en dessous de l'image */
+        }
+        
+        .image-container:hover .overlay {
+            top: 50%;
+        }
+        
+        
+        
         @media (min-width: 768px) {
             .bd-placeholder-img-lg {
                 font-size: 3.5rem;
@@ -80,45 +115,56 @@
 
             {% if block('carousel') is defined %}
 
-            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel" >
                 <ol class="carousel-indicators">
                     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                     <li data-target="#myCarousel" data-slide-to="1"></li>
                     <li data-target="#myCarousel" data-slide-to="2"></li>
                 </ol>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
+                <div class="carousel-inner" >
+                    <div class="carousel-item active" >
+                        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" >
+                            <rect width="100%" height="100%" fill="#777"/>
+                            <image href="/uploads/images/pano1.png" width="100%" height="100%" style="  opacity: 0.5;"/>
+                        </svg>
                         <div class="container">
                             <div class="carousel-caption text-left">
-                                <h1>Example headline.</h1>
-                                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                                <p><a class="btn btn-lg btn-primary" href="{{path('app_register')}}" role="button">Sign up today</a></p>
+                                <h1>Découvrez la beauté des fleurs.</h1>
+                                <p>Explorez notre sélection exquise de fleurs fraîches et laissez-vous enchanter par leur splendeur naturelle.</p>
+                                <p><a class="btn btn-lg btn-primary" href="{{path('app_product')}}" role="button">Explorer notre catalogue</a></p>
                             </div>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
+                        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" >
+                            <rect width="100%" height="100%" fill="#777"/>
+                            <image href="/uploads/images/pano2.png" width="100%" height="100%" style="  opacity: 0.5;"/>
+                        </svg>
                         <div class="container">
                             <div class="carousel-caption">
-                                <h1>Another example headline.</h1>
-                                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                                <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                                <h1>Ne manquez pas nos offres exclusives !</h1>
+                                <p>Inscrivez-vous dès maintenant pour accéder à notre sélection de fleurs exceptionnelles et pour passer commande. Devenez membre et bénéficiez d'avantages réservés aux membres.</p>
+                                <p><a class="btn btn-lg btn-primary" href="{{path('app_register')}}" role="button">Inscrivez-vous pour commander</a></p>
                             </div>
+                            
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
+                        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" >
+                            <rect width="100%" height="100%" fill="#777"/>
+                            <image href="/uploads/images/pano3.png" width="100%" height="100%" style="  opacity: 0.5;"/>
+                        </svg>
                         <div class="container">
                             <div class="carousel-caption text-right">
-                                <h1>One more for good measure.</h1>
-                                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                                <p><a class="btn btn-lg btn-primary" href="{{path('app_product')}}" role="button">Browse gallery</a></p>
+                                    <h1>Découvrez notre histoire et notre expertise !</h1>
+                                    <p>Explorez nos racines, nos méthodes de travail et notre engagement envers la qualité et la satisfaction des clients. Apprenez-en plus sur ce qui fait de nous votre meilleur choix pour vos besoins floraux.</p>
+                                    <p><a class="btn btn-lg btn-primary" href="{{path('app_register')}}" role="button">Nous découvrire</a></p>
+                           
                             </div>
                         </div>
                     </div>
                 </div>
-                <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev" >
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
                 </a>
