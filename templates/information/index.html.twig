@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos information - FlowerStore{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+    }
+    .container {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+    p {
+        line-height: 1.6;
+        color: #666;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Qui sommes nous ?</h1>
+    <p>Bienvenue sur FlowerStore ! Nous sommes une entreprise passionnée par les fleurs et la nature. Notre mission est de fournir des fleurs fraîches et magnifiques à nos clients, pour embellir leurs vies et créer des moments spéciaux.</p>
+    <p>Nos fleurs sont soigneusement sélectionnées auprès des meilleurs fournisseurs et sont disponibles dans une variété de bouquets et d'arrangements pour toutes les occasions.</p>
+    <p>Notre équipe est composée de fleuristes talentueux et dévoués qui sont là pour vous aider à trouver le bouquet parfait pour chaque occasion. Nous croyons en la qualité, le service et la satisfaction du client.</p>
+</div>
+</body>
+{% endblock %}
