@@ -37,7 +37,7 @@ class Order
     #[ORM\Column(type: Types::TEXT)]
     private ?string $delivery = null;
 
-    #[ORM\OneToMany(targetEntity:OrderDetails::class, mappedBy:"order")]
+    #[ORM\OneToMany(targetEntity:OrderDetails::class, mappedBy:"myOrder")]
     private Collection $orderDetails;
 
     #[ORM\Column]

@@ -24,7 +24,12 @@ class OrderController extends AbstractController
     {
         $this->entityManager = $entityManager;
     }
-    #[Route('/commande', name: 'app_order')]
+
+    /**
+     * 1ère étape du tunnel d'achat
+     * Choix de l'adresse de livraison et du transporteur 
+     */
+    #[Route('/commande/livraison', name: 'app_order')]
     public function index(Cart $cart, Request $request): Response
     {
 
