@@ -26,11 +26,19 @@ class InformationController extends AbstractController
         $email = (new Email())
             ->from('flowerstore@laposte.net')
             ->to('fortierthe@cy-tech.fr')
-            ->subject('Sujet de l\'email')
-            ->text('Contenu du message')
-            ->html('<p>Contenu du message en HTML</p>');
+            ->subject('Sigykujet de l\'email')
+            ->text('pigukvhjblhoContenu du message')
+            ->html('<p>CoéifbuiabufiaelbflaiuefbaliufbuifailzfubzuiabML</p>');
 
-        $mailer->send($email);
+        try {
+            $mailer->send($email);
+        } catch (TransportExceptionInterface $e) {
+            // some error prevented the email sending; display an
+            // error message or try to resend the message
+        }
         return $this->render('email/envoye.html.twig');
     }
+
+    
 }
+
