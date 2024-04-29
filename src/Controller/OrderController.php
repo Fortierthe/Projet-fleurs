@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Classe\Cart;
 use App\Entity\Order;
+use App\Entity\commande_paye;
 use App\Entity\OrderDetails;
 use App\Entity\User;
 use App\Form\OrderType;
