@@ -1,10 +1,12 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Hello CommandePayeController!{% endblock %}
-
-{% block content %}
-
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facture</title>
     <style>
+        /* Ajoutez ici votre CSS */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -43,15 +45,16 @@
             font-weight: bold;
         }
     </style>
-
+</head>
+<body>
     <div class="container">
         <div class="header">
-            <h2>Facture</h2>
+            <h2>Facture FlowerStore</h2>
         </div>
         <div class="invoice-details">
             <p><strong>Date:</strong> {{ date }}</p>
-            <p><strong>Numéro de facture:</strong> </p>
-            <p><strong>Destinataire:</strong> {{ delivery }}</p>
+            <p><strong>Numéro de facture:</strong> {{ invoiceNumber }}</p>
+            <p><strong>Destinataire:</strong> {{ recipient }}</p>
         </div>
         <table class="table">
             <thead>
@@ -63,18 +66,22 @@
                 </tr>
             </thead>
             <tbody>
-                {% for key,product in products %}
+                {% for product in products %}
                 <tr>
-                    <td>hello</td>
+                    <td>{{ product[0] }}</td>
+                    <td>{{ product[1] }}</td>
+                    <td>{{ product[2] }}</td>
+                    <td>{{ product[3] }}</td>
                 </tr>
                 {% endfor %}
+                
                 <tr class="total">
                     <td colspan="3">Total</td>
-                    <td>totl</td>
+                    <td>{{ total }}</td>
                 </tr>
             </tbody>
         </table>
         <p>Merci pour votre achat !</p>
     </div>
-
-{% endblock %}
+</body>
+</html>

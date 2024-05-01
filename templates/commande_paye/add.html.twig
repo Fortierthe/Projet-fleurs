@@ -26,10 +26,8 @@
             </div>
 
             <div class="order-summary">
-                {# {% comment %} {% set formHtml %}
-                {{ form_start(form, {action : path('app_order_recap_form')}) }}
-                                     {% endcomment %} #}
                 {% set total = null %}
+                {% set productDetails = [] %}
                 {% for key,product in  cart %}
                     <div class="row {% if key > 0 %}mt-2{% endif %}">
                         <div class="col-2 mt-1"> 
@@ -46,9 +44,15 @@
                         <div class="col-2 my-auto"> 
                             {{((product.product.price * product.quantity) / 100)|number_format(2,',','.') ~ ' €'}}
                         </div>   
+
+                        {% set details = [] %}
+                        {% set details = details|merge([product.product.name,(product.product.price/100)|number_format(2, ',', '.') , product.quantity,(product.product.price * product.quantity / 100)|number_format(2, ',', '.')]) %}
+                        {% set productDetails = productDetails|merge([details]) %}
+                    
                     </div>
                     {% set total = total + (product.product.price * product.quantity) %}
                 {% endfor %}
+
             </div>
             <hr>
             <strong> Sous total : </strong> {{ (total / 100)|number_format(2,',','.') ~ ' €'}} <br/>
@@ -59,13 +63,16 @@
                 <strong> Livraison : </strong> Non défini
             {% endif %}
             <hr>
-            <strong> Total : </strong> {{ ((total / 100)+(carrier.price))|number_format(2,',','.') ~ ' €'}}
+            {% set tot = ((total / 100)+(carrier.price))|number_format(2,',','.') ~ ' €' %}
+            <strong> Total : </strong> {{tot}}
             
-            <a href="{{ path('app_commande_paye') }}" class="btn btn-success btn-block mt-3"> Payer | {{ ((total / 100)+(carrier.price))|number_format(2,',','.') ~ ' €'}} </a>
-            {# {% comment %} {{ form_end(form) }}
-            {% endset %}
-            {{ formHtml|replace({'[br]' : '<br/>'})|raw}} {% endcomment %} #}
-        </div>
+            <a href="{{ path('app_commande_paye', {'carriers': carrier,
+             'delivery': delivery,
+             'products': productDetails|json_encode,
+             'name': app.user.lastname,
+             'usermail': app.user.email,
+             'total' : tot
+            }) }}" class="btn btn-success btn-block mt-3">Payer | {{ tot}}</a>        </div>
     </div>
     
 {% endblock %}
