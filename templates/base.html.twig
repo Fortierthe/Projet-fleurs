@@ -83,7 +83,7 @@
                             <a class="nav-link" href="{{path('app_information')}}">Qui sommes-nous ?</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Contact</a>
+                            <a class="nav-link" href="{{path('app_contact')}}">Contact</a>
                         </li>
                     </ul>
                     <div class="navbar-item-custom">
@@ -114,6 +114,13 @@
         <main role="main">
 
             {% if block('carousel') is defined %}
+
+            <style>
+                div h1, div p {
+                    color: black; 
+                }
+            </style>
+            
 
             <div id="myCarousel" class="carousel slide" data-ride="carousel" >
                 <ol class="carousel-indicators">
@@ -149,6 +156,7 @@
                             
                         </div>
                     </div>
+
                     <div class="carousel-item">
                         <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" >
                             <rect width="100%" height="100%" fill="#777"/>
@@ -158,7 +166,7 @@
                             <div class="carousel-caption text-right">
                                     <h1>Découvrez notre histoire et notre expertise !</h1>
                                     <p>Explorez nos racines, nos méthodes de travail et notre engagement envers la qualité et la satisfaction des clients. Apprenez-en plus sur ce qui fait de nous votre meilleur choix pour vos besoins floraux.</p>
-                                    <p><a class="btn btn-lg btn-primary" href="{{path('app_register')}}" role="button">Nous découvrire</a></p>
+                                    <p><a class="btn btn-lg btn-primary" href="{{path('app_information')}}" role="button">Nous découvrir</a></p>
                            
                             </div>
                         </div>

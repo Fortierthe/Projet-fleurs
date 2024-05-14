@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nous contacter - FlowerStore{% endblock %}
+
+{% block content %}
+    <h1> Nous contacter </h1>
+    C'est ici que tout se passe pour nous envoyer un mail, une demande d'information ou un renseignement.
+    {#<a href="{{path('app_contact')}}"> Retour </a>#}
+    <hr>
+    {{ form_start(form) }}
+        <div class="row">
+            <div class="col-md-12"> {{ form_row(form.name) }} </div>
+            <div class="col-md-6"> {{ form_row(form.email) }} </div>
+            <div class="col-md-6"> {{ form_row(form.phone) }} </div>
+            <div class="col-md-6"> {{ form_row(form.date_naissance) }} </div>
+            <div class="col-md-12"> {{ form_row(form.genre) }} </div>
+            <div class="col-md-12"> {{ form_row(form.metier) }} </div>
+            <div class="col-md-12"> {{ form_row(form.subject) }} </div>
+            <div class="col-md-12"> {{ form_row(form.message) }} </div>
+        </div>
+        <button class="btn btn-primary">Envoyer</button>
+    {{ form_end(form) }}
+    
+{% endblock %}

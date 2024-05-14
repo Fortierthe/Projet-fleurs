@@ -25,7 +25,7 @@
             <div class="order-summary">
                 {% for key,product in  cart %}
                     <div class="row {% if key > 0 %}mt-2{% endif %}">
-                        <div class="col-2 mt-1"> <img src="uploads/images/{{product.product.illustration}}" alt="{{product.product.name}}" height="70px"> </div>
+                        <div class="col-2 mt-1"> <img src="{{ asset('uploads/images/' ~ product.product.illustration) }}" alt="{{product.product.name}}" height="70px"> </div>
                         <div class="col-8 my-auto"> {{ product.product.name }} {#<small> {{product.product.subtitle}}</small>#} </div>
                         <div class="col-2 my-auto"> x {{product.quantity}} &nbsp; <br />  </div>   
                     </div>
