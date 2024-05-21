@@ -398,98 +398,59 @@ class CommandePayeController extends AbstractController
     #[Route('/commande/paye', name: 'app_commande_paye')]
     public function app_commande_paye(Cart $cart, Request $request,MailerInterface $mailer): Response
     {
-        print_r("<br>");
-        print_r("<br>");
-        print_r("<br>");
+        
         $carriers = $request->query->get('carriers');
-        print_r($carriers);
-        print_r("<br>");
-
+        $carriers = explode('[br]', $carriers);
         $delivery = $request->query->get('delivery');
-        print_r($delivery);
-        print_r("<br>");
-
         $date = new DateTime();
         $date = new DateTimeImmutable();
         $formattedDate = $date->format('Y-m-d H:i:s');
         $products = json_decode($request->query->get('products'), true);
-        print_r($products);
-        print_r("<br>");
-        
         $name = $request->query->get('name');
-        print_r($name);
-        print_r("<br>");
-
         $usermail = $request->query->get('usermail');
-        print_r($usermail);
-        print_r("<br>");
-
         $total = $request->query->get('total');
-        print_r($total);
-        print_r("<br>");
-
-            
-            // //         // Enregistrer ma commande Order()
-            // //         $order = new Order();
-            // //         $order->setUser($user);
-            // //         $order->setCreatedAt($date);
-            // //         $order->setCarrierName($carriers->getName());
-            // //         $order->setCarrierPrice($carriers->getPrice());
-            // //         $order->setDelivery($delivery_content);
-            // //         $order->setIsPaid(0);
-            
-            // //         $this->entityManager->persist($order);
-            
-            
-            // //         // Enregistrer mes produits OrderDetails()
-            // //         foreach($cart->getFull() as $product){
-            // //             $orderDetails = new OrderDetails();
-            // //             // $orderDetails->setMyOrder($this->getUser());
-            // //             $orderDetails->setMyOrder($order);
-            // //             $orderDetails->setProduct($product['product']->getName());
-            // //             $orderDetails->setQuantity($product['quantity']);
-            // //             $orderDetails->setPrice($product['product']->getPrice());
-            // //             $orderDetails->setTotal($product['product']->getPrice() * $product['quantity']);
-            // //             $this->entityManager->persist($orderDetails);
-            // //         }
-            
-            // //         $this->entityManager->flush();
-            // //         print_r( $this->entityManager);
-         
+    
     $contentMail = $this->renderView('commande_paye/email.html.twig', [
         // Passer les variables nécessaires à votre modèle Twig
         'date' => $formattedDate,
         'invoiceNumber' => '123456',
         'recipient' => $name,
         'products' => $products,
-        'total' => '35'
+        'carriers' => $carriers,
+        'total' => $total,
     ]);
 
+    /*
+    return $this->render('commande_paye/email.html.twig', [
+        // Passer les variables nécessaires à votre modèle Twig
+        'date' => $formattedDate,
+        'invoiceNumber' => '123456',
+        'recipient' => $name,
+        'products' => $products,
+        'carriers' => $carriers,
+        'total' => $total,
+    ]);
+    */
+
+    
     $email = (new Email())
-        ->from('flowerstore@laposte.net')
+        ->from('flowerstore2@laposte.net')
         ->to($usermail)
         ->bcc('fortierthe@cy-tech.fr')
-        ->subject('Sigykujet de l\'email')
-        ->text('{$cart}dzd{$request}')
+        ->subject('Facture FlowerStore')
+        ->text('')
         ->html($contentMail);
 
     try {
+        
         $mailer->send($email);
     } catch (TransportExceptionInterface $e) {
         // some error prevented the email sending; display an
         // error message or try to resen
     }
-   
     
-    return $this->render('commande_paye/index.html.twig', [
-                    'controller_name' => 'CommandePayeController',
-                    'delivery' => $delivery,
-                    'products' => $products,
-                    'date' =>$formattedDate,
-                    'name' => $name,
-                    'usermail' => $usermail,
-                    'total' => $total
-                ]);
+    $cart->remove();
+    return $this->render('commande_paye/index.html.twig');
     }
 }
 

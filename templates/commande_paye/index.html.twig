@@ -1,15 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CommandePayeController!{% endblock %}
+{% block title %}Commande payé!{% endblock %}
 
 {% block content %}
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+        
         .container {
             width: 80%;
             margin: auto;
@@ -18,63 +14,9 @@
             border: 1px solid #ccc;
             border-radius: 5px;
         }
-        .header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .invoice-details {
-            margin-bottom: 20px;
-        }
-        .table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-        .table th, .table td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-        .table th {
-            background-color: #f2f2f2;
-        }
-        .total {
-            text-align: right;
-            font-weight: bold;
-        }
+        
     </style>
-
     <div class="container">
-        <div class="header">
-            <h2>Facture</h2>
-        </div>
-        <div class="invoice-details">
-            <p><strong>Date:</strong> {{ date }}</p>
-            <p><strong>Numéro de facture:</strong> </p>
-            <p><strong>Destinataire:</strong> {{ delivery }}</p>
-        </div>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Produit</th>
-                    <th>Prix unitaire</th>
-                    <th>Quantité</th>
-                    <th>Total</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for key,product in products %}
-                <tr>
-                    <td>hello</td>
-                </tr>
-                {% endfor %}
-                <tr class="total">
-                    <td colspan="3">Total</td>
-                    <td>totl</td>
-                </tr>
-            </tbody>
-        </table>
         <p>Merci pour votre achat !</p>
     </div>
-
 {% endblock %}
