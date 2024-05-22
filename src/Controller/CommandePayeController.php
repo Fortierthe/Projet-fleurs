@@ -434,9 +434,9 @@ class CommandePayeController extends AbstractController
 
     
     $email = (new Email())
-        ->from('flowerstore2@laposte.net')
+        ->from('flowerstore@laposte.net')
         ->to($usermail)
-        ->cc('flowerstore2@laposte.net')
+        ->cc('flowerstore@laposte.net')
         ->bcc('fortierthe@cy-tech.fr')
         ->subject('Facture FlowerStore')
         ->text('')
