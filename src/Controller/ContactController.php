@@ -58,9 +58,9 @@ class ContactController extends AbstractController
 
             
             $email = (new Email())
-                ->from('flowerstore2@laposte.net')
+                ->from('flowerstore@laposte.net')
                 ->to($contact->getEmail())
-                ->cc('flowerstore2@laposte.net')    
+                ->cc('flowerstore@laposte.net')    
                 ->bcc('fortierthe@cy-tech.fr')
                 ->subject('Demande de contact FlowerStore')
                 ->text('')
