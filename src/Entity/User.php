@@ -30,6 +30,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?string $password = null;
 
+
+
     #[ORM\Column(length: 255)]
     private ?string $firstname = null;
 
@@ -105,6 +107,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         return $this->password;
     }
+
+    
 
     public function setPassword(string $password): static
     {
