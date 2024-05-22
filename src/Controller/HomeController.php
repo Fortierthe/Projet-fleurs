@@ -14,9 +14,9 @@ class HomeController extends AbstractController
     #[Route('/', name: 'app_home')]
     public function index(SessionInterface $session,EntityManagerInterface $entityManager): Response
     {
-        //$this->getUser()->setRoles(["ROLE_ADMIN"]);
-        //print_r($this->getUser()->getRoles());
-        //$entityManager->flush();
+        // $this->getUser()->setRoles(["ROLE_ADMIN"]);
+        // print_r($this->getUser()->getRoles());
+        // $entityManager->flush();
 
         // $session->remove('cart');
         // $session->set('cart', [
